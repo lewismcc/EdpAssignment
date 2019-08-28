@@ -31,8 +31,7 @@ namespace EdpAssignment
             string password = TxtBoxPassword.Text;
             Customer client = LoginHandler.Login(email, password);
             MessageBox.Show("Log in successful");
-
-
+           
             AccountScreen accountsScreen = new AccountScreen(client);
             MainWindow.GetInstance().ContentPanel.Controls.Remove(this);
             MainWindow.GetInstance().ContentPanel.Controls.Add(accountsScreen);

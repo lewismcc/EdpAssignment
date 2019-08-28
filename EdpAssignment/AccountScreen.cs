@@ -19,6 +19,9 @@ namespace EdpAssignment
         public AccountScreen(Customer tclient) : this()
         {
             this.client = tclient;
+            LblFName.Text = client.FirstName;
+            LblSName.Text = client.LastName;
+            LblActiveBalance.Text= "43234";
         }
 
         public AccountScreen()
@@ -35,5 +38,7 @@ namespace EdpAssignment
         {
             Application.Exit();
         }
+
+
     }
 }

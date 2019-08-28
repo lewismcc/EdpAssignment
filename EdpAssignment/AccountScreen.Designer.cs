@@ -33,6 +33,7 @@
             this.LblBalance = new System.Windows.Forms.Label();
             this.BtnLogout = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
+            this.LblActiveBalance = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblFName
@@ -56,9 +57,10 @@
             // LblBalance
             // 
             this.LblBalance.AutoSize = true;
-            this.LblBalance.Location = new System.Drawing.Point(359, 224);
+            this.LblBalance.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblBalance.Location = new System.Drawing.Point(314, 196);
             this.LblBalance.Name = "LblBalance";
-            this.LblBalance.Size = new System.Drawing.Size(83, 13);
+            this.LblBalance.Size = new System.Drawing.Size(190, 32);
             this.LblBalance.TabIndex = 2;
             this.LblBalance.Text = "Current Balance";
             // 
@@ -88,11 +90,22 @@
             this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.OnExitClick);
             // 
+            // LblActiveBalance
+            // 
+            this.LblActiveBalance.AutoSize = true;
+            this.LblActiveBalance.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblActiveBalance.Location = new System.Drawing.Point(347, 276);
+            this.LblActiveBalance.Name = "LblActiveBalance";
+            this.LblActiveBalance.Size = new System.Drawing.Size(112, 25);
+            this.LblActiveBalance.TabIndex = 6;
+            this.LblActiveBalance.Text = "Placeholder";
+            // 
             // AccountScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Controls.Add(this.LblActiveBalance);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnLogout);
             this.Controls.Add(this.LblBalance);
@@ -112,5 +125,6 @@
         private System.Windows.Forms.Label LblBalance;
         private System.Windows.Forms.Button BtnLogout;
         private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Label LblActiveBalance;
     }
 }
