@@ -36,6 +36,7 @@
             this.BtnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnHelp = new System.Windows.Forms.Button();
+            this.LblLoginWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBoxEmail
@@ -81,6 +82,7 @@
             this.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnExit.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnExit.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.BtnExit.FlatAppearance.BorderSize = 0;
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExit.Location = new System.Drawing.Point(738, 459);
@@ -95,6 +97,7 @@
             // 
             this.BtnSubmit.BackColor = System.Drawing.Color.Silver;
             this.BtnSubmit.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.BtnSubmit.FlatAppearance.BorderSize = 0;
             this.BtnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSubmit.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSubmit.Location = new System.Drawing.Point(403, 346);
@@ -111,14 +114,15 @@
             this.label1.Font = new System.Drawing.Font("Yu Gothic", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(317, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 38);
+            this.label1.Size = new System.Drawing.Size(206, 38);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Bank of the bank ";
+            this.label1.Text = "Bank of Lewis";
             // 
             // BtnHelp
             // 
             this.BtnHelp.BackColor = System.Drawing.Color.Silver;
             this.BtnHelp.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.BtnHelp.FlatAppearance.BorderSize = 0;
             this.BtnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnHelp.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHelp.Location = new System.Drawing.Point(20, 459);
@@ -127,12 +131,24 @@
             this.BtnHelp.TabIndex = 7;
             this.BtnHelp.Text = "Help";
             this.BtnHelp.UseVisualStyleBackColor = false;
+            this.BtnHelp.Click += new System.EventHandler(this.OnHelpClick);
+            // 
+            // LblLoginWarning
+            // 
+            this.LblLoginWarning.AutoSize = true;
+            this.LblLoginWarning.Location = new System.Drawing.Point(530, 280);
+            this.LblLoginWarning.Name = "LblLoginWarning";
+            this.LblLoginWarning.Size = new System.Drawing.Size(35, 13);
+            this.LblLoginWarning.TabIndex = 9;
+            this.LblLoginWarning.Text = "label2";
+            this.LblLoginWarning.Visible = false;
             // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Controls.Add(this.LblLoginWarning);
             this.Controls.Add(this.BtnHelp);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnSubmit);
@@ -158,5 +174,6 @@
         private System.Windows.Forms.Button BtnSubmit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnHelp;
+        private System.Windows.Forms.Label LblLoginWarning;
     }
 }

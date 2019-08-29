@@ -15,30 +15,56 @@ namespace EdpAssignment
 {
     public partial class AccountScreen : UserControl
     {
-        private Customer client;
-        public AccountScreen(Customer tclient) : this()
-        {
-            this.client = tclient;
-            LblFName.Text = client.FirstName;
-            LblSName.Text = client.LastName;
-            LblActiveBalance.Text= "43234";
-        }
+        public Customer client;
+        TransactionMenu transactionMenu;
 
         public AccountScreen()
         {
             InitializeComponent();
         }
+        public AccountScreen(Customer client) : this()
+        {
+            this.client = client;
+            LblFName.Text = this.client.FirstName + " " + this.client.LastName;
+            LblActiveBalance.Text = this.client.GetAccounts().ElementAt(0).Balance.ToString();
+        }
 
         private void OnLogoutClick(object sender, EventArgs e)
         {
             LoginHandler.Logout(this.client);
+
+            LoginScreen login = new LoginScreen();
+            MainWindow.GetInstance().ContentPanel.Controls.Remove(this);
+            MainWindow.GetInstance().ContentPanel.Controls.Add(login);  
         }
 
         private void OnExitClick(object sender, EventArgs e)
         {
+            LoginHandler.Logout(this.client);
             Application.Exit();
         }
 
+        private void OnTransactionMenuClicked(object sender, EventArgs e)
+        {
+            if (transactionMenu == null)
+            {
+                transactionMenu = new TransactionMenu(client);
+                this.TransactionPanel.Controls.Add(transactionMenu);
+            }
+            else
+            {
+                this.TransactionPanel.Controls.Add(transactionMenu);
+            }
+        }
 
+        private void OnCloseBtnClicked(object sender, EventArgs e)
+        {
+            if (transactionMenu != null)
+            {
+                this.client = transactionMenu.Client;
+                LblActiveBalance.Text = this.client.GetAccounts().ElementAt(0).Balance.ToString();
+                this.TransactionPanel.Controls.Remove(transactionMenu);
+            }   
+        }
     }
 }

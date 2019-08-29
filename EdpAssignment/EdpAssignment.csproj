@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransactionMenu.Designer.cs">
+      <DependentUpon>TransactionMenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountScreen.resx">
       <DependentUpon>AccountScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +93,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TransactionMenu.resx">
+      <DependentUpon>TransactionMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

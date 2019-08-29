@@ -29,14 +29,33 @@ namespace EdpAssignment
         {
             string email = TxtBoxEmail.Text;
             string password = TxtBoxPassword.Text;
-            Customer client = LoginHandler.Login(email, password);
-            MessageBox.Show("Log in successful");
-           
-            AccountScreen accountsScreen = new AccountScreen(client);
-            MainWindow.GetInstance().ContentPanel.Controls.Remove(this);
-            MainWindow.GetInstance().ContentPanel.Controls.Add(accountsScreen);
+            try
+            {
+                Customer client = LoginHandler.Login(email, password);
+                MessageBox.Show("Log in successful");
 
+                AccountScreen accountsScreen = new AccountScreen(client);
+                MainWindow.GetInstance().ContentPanel.Controls.Remove(this);
+                MainWindow.GetInstance().ContentPanel.Controls.Add(accountsScreen);
+            }
+            catch (ArgumentException ae)
+            {
+                //MessageBox.Show(ae.Message);
+                ShowTips();
+            }
+        }
 
+        private void OnHelpClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowTips()
+        {
+            TxtBoxEmail.Text = " ";
+            TxtBoxPassword.Text = "";
+            LblLoginWarning.Text = "Incorrect Email or Password";
+            LblLoginWarning.Visible = true;
         }
     }
 }
