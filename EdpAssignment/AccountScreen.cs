@@ -25,8 +25,9 @@ namespace EdpAssignment
         public AccountScreen(Customer client) : this()
         {
             this.client = client;
+            LblTitleAccount.Text += this.client.GetAccounts()[0].AccountNumber;
             LblFName.Text = this.client.FirstName + " " + this.client.LastName;
-            LblActiveBalance.Text = this.client.GetAccounts().ElementAt(0).Balance.ToString();
+            LblActiveBalance.Text = this.client.GetAccounts()[0].Balance.ToString();
         }
 
         private void OnLogoutClick(object sender, EventArgs e)

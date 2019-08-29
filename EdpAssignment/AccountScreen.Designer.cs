@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblFName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
             this.BtnLogout = new System.Windows.Forms.Button();
@@ -36,13 +37,18 @@
             this.BtnOpenTransMenu = new System.Windows.Forms.Button();
             this.TransactionPanel = new System.Windows.Forms.Panel();
             this.BtnCloseTransMenu = new System.Windows.Forms.Button();
+            this.LblTitleAccount = new System.Windows.Forms.Label();
+            this.TTLogout = new System.Windows.Forms.ToolTip(this.components);
+            this.TTOpenMenu = new System.Windows.Forms.ToolTip(this.components);
+            this.TTCloseMenu = new System.Windows.Forms.ToolTip(this.components);
+            this.TTExit = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // LblFName
             // 
             this.LblFName.AutoSize = true;
             this.LblFName.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFName.Location = new System.Drawing.Point(108, 65);
+            this.LblFName.Location = new System.Drawing.Point(93, 149);
             this.LblFName.Name = "LblFName";
             this.LblFName.Size = new System.Drawing.Size(127, 30);
             this.LblFName.TabIndex = 0;
@@ -52,7 +58,7 @@
             // 
             this.LblBalance.AutoSize = true;
             this.LblBalance.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBalance.Location = new System.Drawing.Point(75, 146);
+            this.LblBalance.Location = new System.Drawing.Point(64, 214);
             this.LblBalance.Name = "LblBalance";
             this.LblBalance.Size = new System.Drawing.Size(190, 32);
             this.LblBalance.TabIndex = 2;
@@ -63,11 +69,13 @@
             this.BtnLogout.BackColor = System.Drawing.Color.Silver;
             this.BtnLogout.FlatAppearance.BorderSize = 0;
             this.BtnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogout.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.Location = new System.Drawing.Point(19, 459);
             this.BtnLogout.Name = "BtnLogout";
             this.BtnLogout.Size = new System.Drawing.Size(80, 40);
             this.BtnLogout.TabIndex = 3;
             this.BtnLogout.Text = "Logout";
+            this.TTLogout.SetToolTip(this.BtnLogout, "Click here to log out");
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.OnLogoutClick);
             // 
@@ -84,6 +92,7 @@
             this.BtnExit.Size = new System.Drawing.Size(80, 40);
             this.BtnExit.TabIndex = 5;
             this.BtnExit.Text = "Exit";
+            this.TTExit.SetToolTip(this.BtnExit, "Click here to exit program");
             this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.OnExitClick);
             // 
@@ -91,7 +100,7 @@
             // 
             this.LblActiveBalance.AutoSize = true;
             this.LblActiveBalance.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblActiveBalance.Location = new System.Drawing.Point(108, 246);
+            this.LblActiveBalance.Location = new System.Drawing.Point(108, 264);
             this.LblActiveBalance.Name = "LblActiveBalance";
             this.LblActiveBalance.Size = new System.Drawing.Size(112, 25);
             this.LblActiveBalance.TabIndex = 6;
@@ -107,15 +116,16 @@
             this.BtnOpenTransMenu.Name = "BtnOpenTransMenu";
             this.BtnOpenTransMenu.Size = new System.Drawing.Size(124, 51);
             this.BtnOpenTransMenu.TabIndex = 7;
-            this.BtnOpenTransMenu.Text = "Transaction Menu";
+            this.BtnOpenTransMenu.Text = "Open Menu";
+            this.TTOpenMenu.SetToolTip(this.BtnOpenTransMenu, "Click to open transaction menu");
             this.BtnOpenTransMenu.UseVisualStyleBackColor = false;
             this.BtnOpenTransMenu.Click += new System.EventHandler(this.OnTransactionMenuClicked);
             // 
             // TransactionPanel
             // 
-            this.TransactionPanel.Location = new System.Drawing.Point(437, 26);
+            this.TransactionPanel.Location = new System.Drawing.Point(437, 65);
             this.TransactionPanel.Name = "TransactionPanel";
-            this.TransactionPanel.Size = new System.Drawing.Size(400, 400);
+            this.TransactionPanel.Size = new System.Drawing.Size(400, 360);
             this.TransactionPanel.TabIndex = 8;
             // 
             // BtnCloseTransMenu
@@ -130,14 +140,26 @@
             this.BtnCloseTransMenu.Size = new System.Drawing.Size(124, 51);
             this.BtnCloseTransMenu.TabIndex = 9;
             this.BtnCloseTransMenu.Text = "Close Menu";
+            this.TTCloseMenu.SetToolTip(this.BtnCloseTransMenu, "Click here to close menu");
             this.BtnCloseTransMenu.UseVisualStyleBackColor = false;
             this.BtnCloseTransMenu.Click += new System.EventHandler(this.OnCloseBtnClicked);
+            // 
+            // LblTitleAccount
+            // 
+            this.LblTitleAccount.AutoSize = true;
+            this.LblTitleAccount.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitleAccount.Location = new System.Drawing.Point(360, 15);
+            this.LblTitleAccount.Name = "LblTitleAccount";
+            this.LblTitleAccount.Size = new System.Drawing.Size(124, 30);
+            this.LblTitleAccount.TabIndex = 10;
+            this.LblTitleAccount.Text = "Account of ";
             // 
             // AccountScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Controls.Add(this.LblTitleAccount);
             this.Controls.Add(this.BtnCloseTransMenu);
             this.Controls.Add(this.TransactionPanel);
             this.Controls.Add(this.BtnOpenTransMenu);
@@ -163,5 +185,10 @@
         private System.Windows.Forms.Button BtnOpenTransMenu;
         private System.Windows.Forms.Panel TransactionPanel;
         private System.Windows.Forms.Button BtnCloseTransMenu;
+        private System.Windows.Forms.Label LblTitleAccount;
+        private System.Windows.Forms.ToolTip TTLogout;
+        private System.Windows.Forms.ToolTip TTExit;
+        private System.Windows.Forms.ToolTip TTOpenMenu;
+        private System.Windows.Forms.ToolTip TTCloseMenu;
     }
 }

@@ -31,6 +31,10 @@ namespace EdpAssignment
             string password = TxtBoxPassword.Text;
             try
             {
+                
+
+
+
                 Customer client = LoginHandler.Login(email, password);
                 MessageBox.Show("Log in successful");
 
@@ -40,8 +44,10 @@ namespace EdpAssignment
             }
             catch (ArgumentException ae)
             {
-                //MessageBox.Show(ae.Message);
-                ShowTips();
+                TxtBoxEmail.Text = "";
+                TxtBoxPassword.Text = "";
+                LblLoginWarning.Text = ae.ParamName;
+                LblLoginWarning.Visible = true;
             }
         }
 
@@ -50,12 +56,15 @@ namespace EdpAssignment
 
         }
 
-        private void ShowTips()
+        private void OnCancelClick(object sender, EventArgs e)
         {
-            TxtBoxEmail.Text = " ";
+            TxtBoxEmail.Text = "";
             TxtBoxPassword.Text = "";
-            LblLoginWarning.Text = "Incorrect Email or Password";
-            LblLoginWarning.Visible = true;
+        }
+
+        private void BtnSubmit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            OnSubmitClick(sender, e);
         }
     }
 }
