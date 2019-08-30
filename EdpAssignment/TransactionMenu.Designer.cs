@@ -122,7 +122,7 @@
             // 
             this.LblDepositBox.AutoSize = true;
             this.LblDepositBox.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDepositBox.Location = new System.Drawing.Point(241, 97);
+            this.LblDepositBox.Location = new System.Drawing.Point(91, 61);
             this.LblDepositBox.Name = "LblDepositBox";
             this.LblDepositBox.Size = new System.Drawing.Size(95, 21);
             this.LblDepositBox.TabIndex = 7;
@@ -133,7 +133,7 @@
             // 
             this.LblWithdrawBox.AutoSize = true;
             this.LblWithdrawBox.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWithdrawBox.Location = new System.Drawing.Point(241, 226);
+            this.LblWithdrawBox.Location = new System.Drawing.Point(91, 188);
             this.LblWithdrawBox.Name = "LblWithdrawBox";
             this.LblWithdrawBox.Size = new System.Drawing.Size(95, 21);
             this.LblWithdrawBox.TabIndex = 8;
