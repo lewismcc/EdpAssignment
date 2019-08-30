@@ -153,9 +153,10 @@
             // LblLoginWarning
             // 
             this.LblLoginWarning.AutoSize = true;
-            this.LblLoginWarning.Location = new System.Drawing.Point(500, 280);
+            this.LblLoginWarning.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLoginWarning.Location = new System.Drawing.Point(498, 251);
             this.LblLoginWarning.Name = "LblLoginWarning";
-            this.LblLoginWarning.Size = new System.Drawing.Size(35, 13);
+            this.LblLoginWarning.Size = new System.Drawing.Size(52, 21);
             this.LblLoginWarning.TabIndex = 9;
             this.LblLoginWarning.Text = "label2";
             this.LblLoginWarning.Visible = false;

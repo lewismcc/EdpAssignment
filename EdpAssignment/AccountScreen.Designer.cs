@@ -119,7 +119,7 @@
             this.BtnOpenTransMenu.Text = "Open Menu";
             this.TTOpenMenu.SetToolTip(this.BtnOpenTransMenu, "Click to open transaction menu");
             this.BtnOpenTransMenu.UseVisualStyleBackColor = false;
-            this.BtnOpenTransMenu.Click += new System.EventHandler(this.OnTransactionMenuClicked);
+            this.BtnOpenTransMenu.Click += new System.EventHandler(this.OnTransactionMenuClick);
             // 
             // TransactionPanel
             // 

@@ -26,71 +26,80 @@ namespace EdpAssignment
         {
             InitializeComponent();
         }
-        public TransactionMenu(Customer incomingClient): this()
+        /// <summary>
+        /// This constructor builds the transaction menu 
+        /// and takes in an incoming client and makes a local instance 
+        /// </summary>
+        /// <param name="incomingClient"></param>
+        public TransactionMenu(Customer incomingClient) : this()
         {
-            this.client = incomingClient;  
+            this.client = incomingClient;
         }
+        /// <summary>
+        /// The OnDepositMoneyClicked takes in user input
+        /// if the value entered isnt negative the deposit will be successful
+        /// if they try to deposit a negative amount they will get an appropriate error
+        /// message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDepositMoneyClicked(object sender, EventArgs e)
         {
             deposit = Int32.Parse(TxtBoxDeposit.Text);
-            try
+
+            if (deposit < 0)
             {
-                if (deposit < 0)
-                {
-                    LblDepositBox.Text = "Cannot deposit negative amount";
-                    LblDepositBox.Visible = true;
-                    LblWithdrawBox.Visible = false;
-                }
-                else
-                {
-                    LblDepositBox.Text = "Deposit successful";
-                    LblDepositBox.Visible = true;
-                    LblWithdrawBox.Visible = false;
-                    this.client.GetAccounts()[0].Deposit(deposit);
-                }
-            }
-            catch (FormatException fe)
-            {
-                LblDepositBox.Text = fe.Message;
+                LblDepositBox.Text = "Cannot deposit negative amount";
                 LblDepositBox.Visible = true;
                 LblWithdrawBox.Visible = false;
             }
+            else
+            {
+                LblDepositBox.Text = "Deposit successful";
+                LblDepositBox.Visible = true;
+                LblWithdrawBox.Visible = false;
+                this.client.GetAccounts()[0].Deposit(deposit);
+            }    
         }
 
+
+        /// <summary>
+        /// The OnWithdrawMoneyClicked method takes in user input
+        /// if the value entered isnt a negative amount and the user has enough money 
+        /// in their account the withdrawal will be successful
+        /// if not they will get an appropriate error message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnWithdrawMoneyClicked(object sender, EventArgs e)
-        {   
+        {
+
             withdraw = Int32.Parse(TxtBoxWithdraw.Text);
             temp = this.client.GetAccounts()[0].Balance;
-            try {
-                if (withdraw > 0)
+
+            if (withdraw > 0)
+            {
+                if (withdraw > temp)
                 {
-                    if (withdraw > temp)
-                    {
-                        LblWithdrawBox.Text = "Insifficient funds!";
-                        LblWithdrawBox.Visible = true;
-                        LblDepositBox.Visible = false;
-                    }
-                    else
-                    {
-                        this.client.GetAccounts()[0].Withdraw(withdraw);
-                        LblWithdrawBox.Text = "Withdraw successful";
-                        LblWithdrawBox.Visible = true;
-                        LblDepositBox.Visible = false;
-                    }
+                    LblWithdrawBox.Text = "Insufficient funds!";
+                    LblWithdrawBox.Visible = true;
+                    LblDepositBox.Visible = false;
                 }
                 else
                 {
-                    LblWithdrawBox.Text = "Cannot withdraw negative amount";
+                    this.client.GetAccounts()[0].Withdraw(withdraw);
+                    LblWithdrawBox.Text = "Withdraw successful";
                     LblWithdrawBox.Visible = true;
                     LblDepositBox.Visible = false;
                 }
             }
-            catch (FormatException fe)
+            else
             {
-                LblWithdrawBox.Text = fe.Message;                    
+                LblWithdrawBox.Text = "Cannot withdraw negative amount";
                 LblWithdrawBox.Visible = true;
                 LblDepositBox.Visible = false;
             }
+        
         }
     }
 }

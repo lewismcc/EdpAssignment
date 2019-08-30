@@ -19,22 +19,27 @@ namespace EdpAssignment
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// The OnExitClick exits the program and makes no changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnExitClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// The OnSubmitClick takes the users email and password
+        /// makes sure both fields are valid and if they are sends them to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnSubmitClick(object sender, EventArgs e)
         {
             string email = TxtBoxEmail.Text;
             string password = TxtBoxPassword.Text;
             try
             {
-                
-
-
-
                 Customer client = LoginHandler.Login(email, password);
                 MessageBox.Show("Log in successful");
 
@@ -50,21 +55,26 @@ namespace EdpAssignment
                 LblLoginWarning.Visible = true;
             }
         }
-
+        /// <summary>
+        /// Currently unimplemented 
+        /// 30/08/2019
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHelpClick(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// The OnCancelClick clears the email field and password field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnCancelClick(object sender, EventArgs e)
         {
             TxtBoxEmail.Text = "";
             TxtBoxPassword.Text = "";
         }
-
-        private void BtnSubmit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnSubmitClick(sender, e);
-        }
+       
     }
 }

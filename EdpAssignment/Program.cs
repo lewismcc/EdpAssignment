@@ -20,7 +20,7 @@ namespace EdpAssignment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainWindow());
+           
             MainWindow mainForm = MainWindow.GetInstance();
             LoginScreen login = new LoginScreen();
             mainForm.ContentPanel.Controls.Add(login);

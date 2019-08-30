@@ -22,6 +22,13 @@ namespace EdpAssignment
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// The AccountScreen constructor builds the screen
+        /// it creates a local instance of the client
+        /// it displays the account, first and last name
+        /// and the current balance of the account
+        /// </summary>
+        /// <param name="client"></param>
         public AccountScreen(Customer client) : this()
         {
             this.client = client;
@@ -29,7 +36,12 @@ namespace EdpAssignment
             LblFName.Text = this.client.FirstName + " " + this.client.LastName;
             LblActiveBalance.Text = this.client.GetAccounts()[0].Balance.ToString();
         }
-
+        /// <summary>
+        /// The OnLogoutClick logs the user out 
+        /// it closes the account window and opens the login window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLogoutClick(object sender, EventArgs e)
         {
             LoginHandler.Logout(this.client);
@@ -38,14 +50,24 @@ namespace EdpAssignment
             MainWindow.GetInstance().ContentPanel.Controls.Remove(this);
             MainWindow.GetInstance().ContentPanel.Controls.Add(login);  
         }
-
+        /// <summary>
+        /// The OnexitClick logs the user out and closes the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnExitClick(object sender, EventArgs e)
         {
             LoginHandler.Logout(this.client);
             Application.Exit();
         }
 
-        private void OnTransactionMenuClicked(object sender, EventArgs e)
+        /// <summary>
+        /// The OnTransactionMenuClick opens the transaction menu 
+        /// it passes the client to the transaction menu 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnTransactionMenuClick(object sender, EventArgs e)
         {
             if (transactionMenu == null)
             {
@@ -58,6 +80,13 @@ namespace EdpAssignment
             }
         }
 
+        /// <summary>
+        /// The OnCloseBtnClicked takes the client in from the transaction menu
+        /// it updates the balance to reflect any changes made with transactions
+        /// it closes the transaction menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnCloseBtnClicked(object sender, EventArgs e)
         {
             if (transactionMenu != null)
@@ -67,5 +96,7 @@ namespace EdpAssignment
                 this.TransactionPanel.Controls.Remove(transactionMenu);
             }   
         }
+
+        
     }
 }

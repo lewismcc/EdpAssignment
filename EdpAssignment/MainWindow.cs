@@ -19,6 +19,12 @@ namespace EdpAssignment
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// The GetInstance method creates a mainwindow object
+        /// if it doesnt exist already 
+        /// otherwise it will return the previously created mainwindow
+        /// </summary>
+        /// <returns></returns>
         public static MainWindow GetInstance()
         {
             if(mainWindow != null)
